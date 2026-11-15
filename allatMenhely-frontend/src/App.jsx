@@ -1,12 +1,14 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route,useNavigate  } from "react-router";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import SajatAdat from "./pages/SajatAdat";
 
 function App() {
   const [auth, setAuth] = useState(null);
+  const navigate = useNavigate();
 
   async function handleLogin(username, password) {
     const authorization = "Basic " + btoa(username + ":" + password);
@@ -36,6 +38,7 @@ function App() {
 
   function handleLogout() {
     setAuth(null);
+    navigate("/");
   }
 
   return (
@@ -50,6 +53,10 @@ function App() {
             element={<Login onLogin={handleLogin} auth={auth} />}
           />
           <Route path="/regisztracio" element={<Register />} />
+          <Route
+            path="/sajat-adataim"
+            element={<SajatAdat auth={auth} />}
+          />
         </Routes>
       </main>
     </div>
