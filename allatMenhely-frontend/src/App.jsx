@@ -5,9 +5,16 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SajatAdat from "./pages/SajatAdat";
+import Befogadok from "./pages/Befogadok";
+import EgyBefogado from "./pages/EgyBefogado";
+import Dolgozok from "./pages/Dolgozok";
 
 function App() {
-  const [auth, setAuth] = useState(null);
+  const [auth, setAuth] = useState(() => {
+    const mentettAuth = sessionStorage.getItem("auth");
+
+    return mentettAuth ? JSON.parse(mentettAuth) : null;
+  });
   const navigate = useNavigate();
 
   async function handleLogin(username, password) {
@@ -29,16 +36,20 @@ function App() {
 
     const user = await response.json();
 
-    setAuth({
+    const ujAuth = {
       username: user.username,
       role: user.role,
       authorization: authorization,
-    });
+    };
+
+    sessionStorage.setItem("auth", JSON.stringify(ujAuth));
+    setAuth(ujAuth);
   }
 
   function handleLogout() {
-    setAuth(null);
-    navigate("/");
+       sessionStorage.removeItem("auth");
+       setAuth(null);
+       navigate("/");
   }
 
   return (
@@ -52,10 +63,24 @@ function App() {
             path="/bejelentkezes"
             element={<Login onLogin={handleLogin} auth={auth} />}
           />
-          <Route path="/regisztracio" element={<Register />} />
           <Route
-            path="/sajat-adataim"
-            element={<SajatAdat auth={auth} />}
+                path="/regisztracio"
+                element={<Register />} />
+          <Route
+                path="/sajat-adataim"
+                element={<SajatAdat auth={auth} />}
+          />
+          <Route
+                path="/befogadok"
+                element={<Befogadok auth={auth}/>}
+          />
+          <Route
+                path="/dolgozok"
+                element={<Dolgozok/>}
+          />
+          <Route
+            path="/befogadok/:id"
+            element={<EgyBefogado auth={auth} />}
           />
         </Routes>
       </main>
