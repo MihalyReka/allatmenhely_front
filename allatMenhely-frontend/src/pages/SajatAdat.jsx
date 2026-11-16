@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./SajatAdat.css";
+
 
 function SajatAdat({ auth }) {
   const [adatok, setAdat] = useState(null);

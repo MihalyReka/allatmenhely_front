@@ -1,27 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import "./Allatok.css";
+
 
 function Allatok({ auth }) {
   const [allatok, setAllatok] = useState([]);
   const [hiba, setHiba] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost:9091/api/animals/public", {
-      headers: {
-        Authorization: auth?.authorization,
-      },
+useEffect(() => {
+  fetch("http://localhost:9091/api/animals/public")
+    .then((valasz) => {
+      if (!valasz.ok) {
+        throw new Error("Nem sikerült betölteni az állatokat.");
+      }
+      return valasz.json();
     })
-      .then((valasz) => {
-        if (!valasz.ok) {
-          throw new Error("Nem sikerült betölteni az állatokat.");
-        }
-        return valasz.json();
-      })
-      .then(setAllatok)
-      .catch((error) => setHiba(error.message));
-  }, [auth]);
+    .then(setAllatok)
+    .catch((error) => setHiba(error.message));
+}, [auth]);
 
   return (
     <div className="allatok-oldal">

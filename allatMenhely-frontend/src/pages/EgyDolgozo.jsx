@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import "./EgyDolgozo.css";
+
 
 function EgyDolgozo({ auth }) {
   const { id } = useParams();

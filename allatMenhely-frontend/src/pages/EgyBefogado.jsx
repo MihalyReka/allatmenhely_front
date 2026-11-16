@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import "./EgyBefogado.css";
 
 
 function EgyBefogado({ auth }) {
