@@ -8,6 +8,7 @@ import SajatAdat from "./pages/SajatAdat";
 import Befogadok from "./pages/Befogadok";
 import EgyBefogado from "./pages/EgyBefogado";
 import Dolgozok from "./pages/Dolgozok";
+import EgyDolgozo from "./pages/EgyDolgozo";
 import EgyAllat from "./pages/EgyAllat"
 
 function App() {
@@ -81,7 +82,11 @@ function App() {
           />
           <Route
                 path="/dolgozok"
-                element={<Dolgozok/>}
+                element={<Dolgozok auth={auth}/>}
+          />
+          <Route
+                path="/dolgozo/:id"
+                element={<EgyDolgozo auth={auth}/>}
           />
           <Route
             path="/befogadok/:id"
