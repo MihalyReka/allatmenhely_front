@@ -1,13 +1,14 @@
 import { Routes, Route,useNavigate  } from "react-router";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import Allatok from "./pages/Allatok";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SajatAdat from "./pages/SajatAdat";
 import Befogadok from "./pages/Befogadok";
 import EgyBefogado from "./pages/EgyBefogado";
 import Dolgozok from "./pages/Dolgozok";
+import EgyAllat from "./pages/EgyAllat"
 
 function App() {
   const [auth, setAuth] = useState(() => {
@@ -58,10 +59,14 @@ function App() {
 
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Allatok/>} />
           <Route
             path="/bejelentkezes"
             element={<Login onLogin={handleLogin} auth={auth} />}
+          />
+          <Route
+            path="/allat/:id"
+            element={<EgyAllat auth={auth} />}
           />
           <Route
                 path="/regisztracio"

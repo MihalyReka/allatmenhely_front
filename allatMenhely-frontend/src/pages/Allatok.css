@@ -1,0 +1,33 @@
+
+.allatok-oldal {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.allatok-oldal h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.allatok-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.allat-kartya {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.allat-kartya h2 {
+  margin-top: 0;
+  color: #287a50;
+}
+
+.allat-kartya p {
+  margin: 10px 0;
+}
