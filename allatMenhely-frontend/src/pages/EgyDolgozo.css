@@ -1,0 +1,60 @@
+adatlap illeszkedjen a többi oldal megjelenéséhez.
+
+.egy-dolgozo-oldal {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.egy-dolgozo-kartya {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.egy-dolgozo-kartya h1 {
+  text-align: center;
+  color: #287a50;
+  margin-bottom: 30px;
+}
+
+.egy-dolgozo-kartya label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.egy-dolgozo-kartya input,
+.egy-dolgozo-kartya select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.egy-dolgozo-kartya p {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.egy-dolgozo-kartya button {
+  padding: 11px 20px;
+  margin: 20px 8px 0 0;
+  border: none;
+  border-radius: 7px;
+  background: #287a50;
+  color: white;
+  cursor: pointer;
+}
+
+.egy-dolgozo-kartya button:hover {
+  background: #1e5e3d;
+}
+
+.egy-dolgozo-kartya button:last-child {
+  background: #777;
+}

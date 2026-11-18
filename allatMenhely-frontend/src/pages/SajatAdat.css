@@ -1,0 +1,31 @@
+.sajat-adatok {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.sajat-adatok h1 {
+  margin-bottom: 25px;
+  color: #365c45;
+}
+
+.adatlap {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.adatlap p {
+  padding: 12px 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.adatlap p:last-child {
+  border-bottom: none;
+}

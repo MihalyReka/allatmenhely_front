@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-
+import "./Dolgozok.css";
 
 function Dolgozok({ auth }) {
   const [dolgozok, setDolgozok] = useState([]);

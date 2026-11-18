@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-
+import "./Allatok.css";
 
 function Allatok({ auth }) {
   const [allatok, setAllatok] = useState([]);
@@ -37,7 +37,7 @@ useEffect(() => {
              <p><strong>Fajta:</strong> {allat.fajta}</p>
              <p><strong>Állattípus:</strong> {allat.allatTipus}</p>
              <p><strong>Nem:</strong> {allat.neme}</p>
-             <p><strong>Születési dátum:</strong> {allat.szDatum}</p>
+             <p><strong>Születési dátum:</strong> {allat.szDatum || "Nem ismert"}</p>
            </div>
          ))}
        </div>

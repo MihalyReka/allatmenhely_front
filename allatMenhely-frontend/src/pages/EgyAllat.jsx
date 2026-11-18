@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-
+import "./EgyAllat.css";
 
 function EgyAllat({ auth }) {
   const { id } = useParams();

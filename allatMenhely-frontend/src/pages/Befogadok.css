@@ -1,0 +1,52 @@
+.befogadok-oldal {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.befogadok-oldal h1 {
+  text-align: center;
+  color: #365c45;
+  margin-bottom: 30px;
+}
+
+.befogado-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.befogado-kartya {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #365c45;
+}
+
+.befogado-kartya h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.befogado-kartya h2 a {
+  color: #365c45;
+  text-decoration: none;
+}
+
+.befogado-kartya h2 a:hover {
+  color: #6b9677;
+  text-decoration: underline;
+}
+
+.befogado-kartya p {
+  color: #444;
+  padding: 8px 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.befogado-kartya p:last-child {
+  border-bottom: none;
+}
+

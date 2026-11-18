@@ -19,34 +19,36 @@ function App() {
   });
   const navigate = useNavigate();
 
-  async function handleLogin(username, password) {
-    const authorization = "Basic " + btoa(username + ":" + password);
-
-    const response = await fetch(
-      "http://localhost:9091/api/auth/me",
-      {
-        method: "GET",
-        headers: {
-          Authorization: authorization,
-        },
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Hibás felhasználónév vagy jelszó!");
+async function handleLogin(username, password) {
+  const response = await fetch(
+    "http://localhost:9091/api/auth/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
     }
+  );
 
-    const user = await response.json();
-
-    const ujAuth = {
-      username: user.username,
-      role: user.role,
-      authorization: authorization,
-    };
-
-    sessionStorage.setItem("auth", JSON.stringify(ujAuth));
-    setAuth(ujAuth);
+  if (!response.ok) {
+    throw new Error("Hibás felhasználónév vagy jelszó!");
   }
+
+  const user = await response.json();
+
+  const ujAuth = {
+    username: user.username,
+    role: user.role,
+    authorization: "Bearer " + user.token,
+  };
+
+  sessionStorage.setItem("auth", JSON.stringify(ujAuth));
+  setAuth(ujAuth);
+}
 
   function handleLogout() {
        sessionStorage.removeItem("auth");
